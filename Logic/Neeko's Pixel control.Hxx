@@ -16,7 +16,7 @@ public:
 
 	cursor operator* (unInt mult);
 
-	void moveR(unInt size, cursor csTemp, unInt windowWidth);
+	bool moveR(unInt size, cursor csTemp, unInt windowWidth);
 	void reset(cursor cs);
 };
 
@@ -34,10 +34,12 @@ public:
 	);
 };
 
-void setPixeln (cursor& cs, COLORREF color, unInt size);
-void drawChar  (cursor& cs, COLORREF color, pixelChar charB, unInt size);
-void write     (cursor& cs, std::string str, COLORREF color, unInt windowWidth, unInt size);
-void cvFile    (cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size);
+void setPixeln  (cursor& cs, COLORREF color, unInt size);
+void drawChar   (cursor& cs, COLORREF color, pixelChar charB, unInt size);
+void write      (cursor& cs, std::string str, COLORREF color, unInt windowWidth, unInt size);
+void cvFile     (cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size);
+
+std::string downString (std::string str);
 
 namespace display {
 	exChar nbsp;

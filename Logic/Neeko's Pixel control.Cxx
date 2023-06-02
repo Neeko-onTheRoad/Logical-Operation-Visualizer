@@ -357,12 +357,14 @@ cursor cursor::operator* (unInt mult) {
 	return cursor(this->x * mult, this->y * mult);
 }
 
-void cursor::moveR(unInt size, cursor csTemp, unInt windowWidth) {
+bool cursor::moveR(unInt size, cursor csTemp, unInt windowWidth) {
 	if ((this->x) >= (windowWidth - (21 * size + 10))) {
 		this->x = csTemp.x;
 		this->y += (size * 18);
+		return true;
 	} else {
 		this->x += (size * 8);
+		return false;
 	}
 }
 
@@ -413,7 +415,85 @@ void drawChar(cursor& cs, COLORREF color, pixelChar charB, unInt size = 1) {
 	return;
 }
 
-#define case(Ch, Dp) case (Ch): drawChar(cs, color, (Dp), size); break;
+std::string downString(std::string str) {
+	std::string strTemp;
+
+	for (char ch : str) {
+		if (('A' <= ch) && ('Z' >= ch)) ch |= 32;
+		strTemp += ch;
+	}
+
+	return strTemp;
+}
+
+#define elif else if
+
+void cvFile(cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size) {
+	enum class status {
+		normal, inString, inMarker
+	};
+
+	std::vector<char> strChar = std::vector<char>();
+	cursor            csTemp = cs;
+
+	for (int i = 0; i < fileStr.length(); i++) {
+		strChar.push_back(fileStr[i]);
+	}
+
+	std::string buffer    = std::string();
+	status      nowStatus = status::normal;
+
+	for (auto i : strChar) {
+		if (nowStatus == status::inString) {
+			if (i == '"') {
+				write(cs, buffer, colorSet.stringColor, windowWidth, size);
+				nowStatus = status::normal;
+				buffer.clear();
+
+			} else buffer += i;
+
+		} elif (nowStatus == status::inMarker) {
+			if (i == '}') {
+				if (downString(buffer) == "and")
+					drawChar(cs, colorSet.disabledColor, display::operators::AND,  size);
+
+				elif(downString(buffer) == "or")
+					drawChar(cs, colorSet.disabledColor, display::operators::OR, size);
+
+				elif(downString(buffer) == "xor")
+					drawChar(cs, colorSet.disabledColor, display::operators::XOR, size);
+
+				elif(downString(buffer) == "not")
+					drawChar(cs, colorSet.disabledColor, display::operators::NOT, size);
+
+				elif(downString(buffer) == "nand") {
+					drawChar(cs, colorSet.disabledColor, display::operators::AND, size);
+					drawChar(cs, colorSet.disabledColor, display::operators::N, size);
+				}
+				elif(downString(buffer) == "nor") {
+					drawChar(cs, colorSet.disabledColor, display::operators::OR, size);
+					drawChar(cs, colorSet.disabledColor, display::operators::N, size);
+				}
+				elif(downString(buffer) == "xnor") {
+					drawChar(cs, colorSet.disabledColor, display::operators::XOR, size);
+					drawChar(cs, colorSet.disabledColor, display::operators::N, size);
+				}
+
+				nowStatus = status::normal;
+				buffer.clear();
+				cs.moveR(size, csTemp, windowWidth);
+
+			} else buffer += i;
+		}
+		elif (i == '"') nowStatus = status::inString;
+		elif (i == '{') nowStatus = status::inMarker;
+
+	}
+
+	return;
+}
+
+#define casef(Ch, Dp) case (Ch): drawChar(cs, color, (Dp), size); break;
 
 void write(cursor& cs, std::string str, COLORREF color, unInt windowWidth, unInt size = 1) {
 	std::vector<char> strChar = std::vector<char>();
@@ -430,53 +510,27 @@ void write(cursor& cs, std::string str, COLORREF color, unInt windowWidth, unInt
 				break;
 			}
 
-			case('?', display::questionMark)
-			case('!', display::exclamationMark)
+			casef('?', display::questionMark)
+			casef('!', display::exclamationMark)
 
-			case('0', display::number::zero)
-			case('1', display::number::one)
-			case('2', display::number::two)
-			case('3', display::number::three)
-			case('4', display::number::four)
-			case('5', display::number::five)
-			case('6', display::number::six)
-			case('7', display::number::seven)
-			case('8', display::number::eight)
-			case('9', display::number::nine)
+			casef('0', display::number::zero)
+			casef('1', display::number::one)
+			casef('2', display::number::two)
+			casef('3', display::number::three)
+			casef('4', display::number::four)
+			casef('5', display::number::five)
+			casef('6', display::number::six)
+			casef('7', display::number::seven)
+			casef('8', display::number::eight)
+			casef('9', display::number::nine)
 
-			case(' ', display::nbsp)
+			casef(' ', display::nbsp)
 		}
 
 		cs.moveR(size, csTemp, windowWidth);
 	}
 
-	cs = csTemp;
-
 	return;
 }
 
-void cvFile(cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size) {
-	std::vector<char> strChar = std::vector<char>();
-	cursor            csTemp = cs;
-
-	for (int i = 0; i < fileStr.length(); i++) {
-		strChar.push_back(fileStr[i]);
-	}
-
-	std::string stringBuff  = std::string();
-	bool        isInString  = false;
-
-	for (auto i : strChar) {
-		if (isInString) {
-			if (i == '"') {
-				write(cs, stringBuff, colorSet.stringColor, windowWidth, size);
-				isInString = false;
-				stringBuff = std::string();
-
-			} else stringBuff += i;
-
-		} else if (i == '"') isInString = true;
-	}
-
-	return;
-}
+#undef casef

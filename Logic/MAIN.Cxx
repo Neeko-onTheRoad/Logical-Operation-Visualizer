@@ -39,7 +39,7 @@ int main(void) {
 	windowSize   winSize     = windowSize(1920, 1080);
 	string       fileName    = string();
 	string       inputString = string();
-	cursor       mainCursor  = cursor(0, 10);
+	cursor       mainCursor  = cursor(10, 10);
 	const cursor startCs     = mainCursor;
 	colorSet     colors      = colorSet();
 	
@@ -51,10 +51,10 @@ int main(void) {
 	//cin >> fileName;
 	//openFile(fileName, inputString);
 
-	
-
 	clearConsole();
 	setCursorBlinking(false);
+
+	inputString = "\"0123\"\"456789\"{and}{Or}{XOR}{NaNd}{NOR}{xNor}{NOT}";
 	
 	Sleep(10);
 
