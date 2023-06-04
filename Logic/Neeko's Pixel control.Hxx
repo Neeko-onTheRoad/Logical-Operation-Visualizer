@@ -17,6 +17,7 @@ public:
 	cursor operator* (unInt mult);
 
 	bool moveR(unInt size, cursor csTemp, unInt windowWidth);
+	void moveD(unInt size, cursor csTemp);
 	void reset(cursor cs);
 };
 
@@ -40,22 +41,3 @@ void write      (cursor& cs, std::string str, COLORREF color, unInt windowWidth,
 void cvFile     (cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size);
 
 std::string downString (std::string str);
-
-namespace display {
-	exChar nbsp;
-	exChar questionMark;
-	exChar exclamationMark;
-
-	namespace number {
-		exChar zero;
-		exChar one;
-		exChar two;
-		exChar three;
-		exChar four;
-		exChar five;
-		exChar six;
-		exChar seven;
-		exChar eight;
-		exChar nine;
-	}
-}

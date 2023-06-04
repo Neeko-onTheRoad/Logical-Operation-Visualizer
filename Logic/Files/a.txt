@@ -1,0 +1,3 @@
+"12345"
+"678\n90"
+{and}{or}{xor}{nand}{nor}{xnor}

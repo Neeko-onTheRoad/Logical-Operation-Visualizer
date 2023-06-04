@@ -29,7 +29,7 @@ public:
 
 void windowSetup  (windowSize);
 void colorSetup   (colorSet&);
-bool openFile     (string, vector<string>&);
+bool openFile     (string, string&);
 void errorExit    (unShort);
 void clearConsole (void);
 
@@ -49,12 +49,10 @@ int main(void) {
 
 	//cout << "Enter File Name : ";
 	//cin >> fileName;
-	//openFile(fileName, inputString);
+	openFile("./a.txt", inputString);
 
 	clearConsole();
 	setCursorBlinking(false);
-
-	inputString = "\"0123\"\"456789\"{and}{Or}{XOR}{NaNd}{NOR}{xNor}{NOT}";
 	
 	Sleep(10);
 

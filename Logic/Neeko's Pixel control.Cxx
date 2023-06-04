@@ -6,62 +6,6 @@
 #define _ 0
 
 namespace display {
-	exChar nbsp = {
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ }
-	};
-
-	exChar questionMark = {
-		{ _, _, 1, 1, 1, _, _ },
-		{ _, 1, 1, _, 1, 1, _ },
-		{ 1, 1, _, _, _, 1, 1 },
-		{ 1, 1, _, _, _, 1, 1 },
-		{ _, _, _, _, _, 1, 1 },
-		{ _, _, _, _, 1, 1, _ }, //
-		{ _, _, _, 1, 1, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, // ?
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ }
-	};
-	exChar exclamationMark = {
-		{ _, _, 1, 1, _, _, _ },
-		{ _, _, 1, 1, _, _, _ },
-		{ _, _, 1, 1, _, _, _ },
-		{ _, _, 1, 1, _, _, _ },
-		{ _, _, 1, 1, _, _, _ },
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, _, _, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, //
-		{ _, _, 1, 1, _, _, _ }, // !
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ },
-		{ _, _, _, _, _, _, _ }
-	};
-
 	namespace operators {
 		exChar AND = {
 			{ _, _, _, _, _, _, _ },
@@ -155,8 +99,63 @@ namespace display {
 		};
 	}
 
-	namespace number {
-		exChar zero = {
+	exChar nbsp = {
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ }
+	};
+	exChar questionMark = {
+		{ _, _, 1, 1, 1, _, _ },
+		{ _, 1, 1, _, 1, 1, _ },
+		{ 1, 1, _, _, _, 1, 1 },
+		{ 1, 1, _, _, _, 1, 1 },
+		{ _, _, _, _, _, 1, 1 },
+		{ _, _, _, _, 1, 1, _ }, //
+		{ _, _, _, 1, 1, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, // ?
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ }
+	};
+	exChar exclamationMark = {
+		{ _, _, 1, 1, _, _, _ },
+		{ _, _, 1, 1, _, _, _ },
+		{ _, _, 1, 1, _, _, _ },
+		{ _, _, 1, 1, _, _, _ },
+		{ _, _, 1, 1, _, _, _ },
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, _, _, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, //
+		{ _, _, 1, 1, _, _, _ }, // !
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ },
+		{ _, _, _, _, _, _, _ }
+	};
+
+	exChar number[10] = {
+		{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -173,8 +172,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar one = {
+		},{
 			{ _, _, _, 1, _, _, _ },
 			{ _, _, 1, 1, _, _, _ },
 			{ _, 1, 1, 1, _, _, _ },
@@ -191,8 +189,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar two = {
+		},{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -209,8 +206,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar three = {
+		},{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -227,8 +223,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar four = {
+		},{
 			{ _, _, _, 1, 1, 1, _ },
 			{ _, _, 1, 1, 1, 1, _ },
 			{ _, _, 1, 1, 1, 1, _ },
@@ -245,8 +240,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar five = {
+		},{
 			{ 1, 1, 1, 1, 1, 1, 1 },
 			{ 1, 1, _, _, _, _, _ },
 			{ 1, 1, _, _, _, _, _ },
@@ -263,8 +257,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar six = {
+		},{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -281,8 +274,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar seven = {
+		},{
 			{ 1, 1, 1, 1, 1, 1, 1 },
 			{ 1, 1, _, _, _, 1, 1 },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -299,8 +291,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar eight = {
+		},{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -317,8 +308,7 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-		exChar nine = {
+		},{
 			{ _, _, 1, 1, 1, _, _ },
 			{ _, 1, 1, _, 1, 1, _ },
 			{ 1, 1, _, _, _, 1, 1 },
@@ -335,8 +325,31 @@ namespace display {
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ },
 			{ _, _, _, _, _, _, _ }
-		};
-	}
+		}
+	};
+	exChar Lalphabet[26] = {
+		{
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ }, //
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ },
+			{ _, _, _, _, _, _, _ }
+		},
+	};
+	exChar Salphabet[26] = {
+
+	};
 }
 
 #undef _
@@ -368,15 +381,22 @@ bool cursor::moveR(unInt size, cursor csTemp, unInt windowWidth) {
 	}
 }
 
+void cursor::moveD(unInt size, cursor csTemp) {
+	this->x = csTemp.x;
+	this->y += (size * 18);
+	return;
+}
+
 void cursor::reset(cursor cs) {
 	this->x = cs.x;
 	this->y = cs.y;
+	return;
 }
 
 colorSet::colorSet() {
-	this->stringColor = COLORREF();
+	this->stringColor   = COLORREF();
 	this->disabledColor = COLORREF();
-	this->enabledColor = COLORREF();
+	this->enabledColor  = COLORREF();
 }
 
 colorSet::colorSet(
@@ -430,7 +450,7 @@ std::string downString(std::string str) {
 
 void cvFile(cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidth, unInt size) {
 	enum class status {
-		normal, inString, inMarker
+		normal, inString, inMarker, special
 	};
 
 	std::vector<char> strChar = std::vector<char>();
@@ -449,23 +469,28 @@ void cvFile(cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidt
 				write(cs, buffer, colorSet.stringColor, windowWidth, size);
 				nowStatus = status::normal;
 				buffer.clear();
-
-			} else buffer += i;
-
-		} elif (nowStatus == status::inMarker) {
+			} 
+			elif(i == '\\') {
+				nowStatus = status::special;
+			}
+			else {
+				buffer += i;
+			}
+		} 
+		elif (nowStatus == status::inMarker) {
 			if (i == '}') {
-				if (downString(buffer) == "and")
-					drawChar(cs, colorSet.disabledColor, display::operators::AND,  size);
-
-				elif(downString(buffer) == "or")
+				if (downString(buffer) == "and") {
+					drawChar(cs, colorSet.disabledColor, display::operators::AND, size);
+				}
+				elif(downString(buffer) == "or") {
 					drawChar(cs, colorSet.disabledColor, display::operators::OR, size);
-
-				elif(downString(buffer) == "xor")
+				}
+				elif(downString(buffer) == "xor") {
 					drawChar(cs, colorSet.disabledColor, display::operators::XOR, size);
-
-				elif(downString(buffer) == "not")
+				}
+				elif(downString(buffer) == "not") {
 					drawChar(cs, colorSet.disabledColor, display::operators::NOT, size);
-
+				}
 				elif(downString(buffer) == "nand") {
 					drawChar(cs, colorSet.disabledColor, display::operators::AND, size);
 					drawChar(cs, colorSet.disabledColor, display::operators::N, size);
@@ -484,6 +509,13 @@ void cvFile(cursor& cs, std::string fileStr, colorSet colorSet, unInt windowWidt
 				cs.moveR(size, csTemp, windowWidth);
 
 			} else buffer += i;
+		}
+		elif(nowStatus == status::special) {
+			if ((i >= 'A') && (i <= 'Z')) i -= 'A';
+
+			switch (i) {
+				case 'n': cs.moveD(size, csTemp);
+			}
 		}
 		elif (i == '"') nowStatus = status::inString;
 		elif (i == '{') nowStatus = status::inMarker;
@@ -504,27 +536,18 @@ void write(cursor& cs, std::string str, COLORREF color, unInt windowWidth, unInt
 	}
 
 	for (auto i : strChar) {
-		switch (i) {
-			default: {
-				drawChar(cs, color, display::nbsp, size);
-				break;
-			}
-
-			casef('?', display::questionMark)
-			casef('!', display::exclamationMark)
-
-			casef('0', display::number::zero)
-			casef('1', display::number::one)
-			casef('2', display::number::two)
-			casef('3', display::number::three)
-			casef('4', display::number::four)
-			casef('5', display::number::five)
-			casef('6', display::number::six)
-			casef('7', display::number::seven)
-			casef('8', display::number::eight)
-			casef('9', display::number::nine)
-
-			casef(' ', display::nbsp)
+		if ((i >= '0') && (i <= '9')) {
+			drawChar(cs, color, display::number[i - '0'], size);
+		} elif((i >= 'A') && (i <= 'Z')) {
+			drawChar(cs, color, display::Lalphabet[i - 'A'], size);
+		} elif((i >= 'a') && (i <= 'z')) {
+			drawChar(cs, color, display::Salphabet[i - 'a'], size);
+		} elif(i == '!') {
+			drawChar(cs, color, display::exclamationMark, size);
+		} elif(i == '?') {
+			drawChar(cs, color, display::questionMark, size);
+		} else {
+			drawChar(cs, color, display::nbsp, size);
 		}
 
 		cs.moveR(size, csTemp, windowWidth);
